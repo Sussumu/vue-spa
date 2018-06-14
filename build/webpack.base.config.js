@@ -13,7 +13,8 @@ const config = {
     path: path.resolve(__dirname, '../dist'),
     publicPath: '/',
     filename: 'assets/js/[name].js'
-  }
+  },
+  plugins: []
 };
 
 module.exports = config;
