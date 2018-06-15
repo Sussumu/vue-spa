@@ -1,4 +1,5 @@
 const path = require('path')
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
 const config = {
   entry: {
@@ -8,7 +9,7 @@ const config = {
     rules: [
       {
         enforce: 'pre',
-        test: /(\.js$)/ | /\.vue$/,
+        test: /(\.js$)/,
         loader: 'eslint-loader',
         exclude: /node_modules/
       },
@@ -23,7 +24,9 @@ const config = {
     publicPath: '/',
     filename: 'assets/js/[name].js'
   },
-  plugins: []
+  plugins: [
+    new VueLoaderPlugin()
+  ]
 }
 
 module.exports = config

@@ -8,19 +8,18 @@ module.exports = function setupDevServer (app) {
   ]
 
   clientConfig.plugins.push(
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoEmitOnErrorsPlugin()
+    new webpack.HotModuleReplacementPlugin()
   )
 
-  const clientCompiler = webpack(clientConfig);
+  const clientCompiler = webpack(clientConfig)
 
-  app.use(
-    require('webpack-dev-middleware')(clientCompiler, {
-      stats: {
-        colors: true
-      }
-    })
+  app.use(require('webpack-dev-middleware')(clientCompiler, {
+    stats: {
+      colors: true
+      // publicPath: clientConfig.output.publicPath
+    }
+  })
   )
 
-  app.use(require('webpack-hot-middleware')(clientCompiler));
+  app.use(require('webpack-hot-middleware')(clientCompiler))
 }
