@@ -16,7 +16,6 @@ module.exports = function setupDevServer (app) {
   app.use(require('webpack-dev-middleware')(clientCompiler, {
     stats: {
       colors: true
-      // publicPath: clientConfig.output.publicPath
     }
   })
   )
