@@ -2,6 +2,7 @@ const path = require('path')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
 const config = {
+  mode: 'production',
   entry: {
     app: path.resolve(__dirname, '../src/client-entry.js')
   },
@@ -16,6 +17,10 @@ const config = {
       {
         test: /\.vue$/,
         loader: 'vue-loader'
+      },
+      {
+        test: /\.s[a|c]ss$/,
+        loader: 'style-loader!css-loader!sass-loader'
       },
       {
         test: /\.js$/,
