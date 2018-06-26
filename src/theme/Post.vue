@@ -12,6 +12,20 @@
 
 <script>
   export default {
-    props: ['post']
+    props: ['link']
   }
 </script>
+
+<style lang="scss" scoped>
+  .card {
+    padding-bottom: 40px;
+    height: 100%;
+  }
+
+  footer {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+  }
+</style>
