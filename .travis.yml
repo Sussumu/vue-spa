@@ -6,7 +6,7 @@ script: 'true'
 deploy:
   provider: heroku
   api_key:
-    secure: bb94bc75-14a4-40a4-89c7-f8c8d54c70fc
+    secure: $__HEROKU_API_KEY__
   app: vue-spa
   on:
     repo: sussumu/vue-spa
