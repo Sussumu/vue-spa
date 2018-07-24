@@ -2,7 +2,10 @@
   <div>
     <app-header></app-header>
     <section class="main-section section">
-      <category></category>
+      <div class="container content">
+        <!-- here the router injects the component declared in this path -->
+        <router-view></router-view>
+      </div>
     </section>
   <app-footer></app-footer>
   </div>
@@ -11,13 +14,11 @@
 <script>
   import Header from './Header.vue'
   import Footer from './Footer.vue'
-  import Category from './Category.vue'
 
   export default {
     components: {
       'app-header': Header,
-      'app-footer': Footer,
-      'category': Category
+      'app-footer': Footer
     }
   }
 </script>
