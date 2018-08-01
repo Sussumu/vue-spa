@@ -49,7 +49,8 @@
 </template>
 
 <script>
-import appService from '../app.service.js';
+import appService from '../app.service.js'
+import eventBus from '../event-bus.js'
 
 export default {
   data() {
@@ -58,7 +59,7 @@ export default {
       password: '',
       isAuthenticated: false,
       profile: {}
-    };
+    }
   },
   watch: {
     isAuthenticated: function (val) {
@@ -70,6 +71,7 @@ export default {
       } else {
         this.profile = {}
       }
+      eventBus.$emit('authStatusUpdated', val)
     }
   },
   methods: {
@@ -97,5 +99,5 @@ export default {
     if (expiration !== null && parseInt(expiration) - unixTimestamp > 0)
       this.isAuthenticated = true;
   }
-};
+}
 </script>

@@ -3,7 +3,24 @@
     <ul>
       <li><div><router-link :to="{ name: 'category', params: { id: 'front-end' } }">Front-End</router-link></div></li>
       <li><div><router-link :to="{ name: 'category', params: { id: 'mobile' } }">Mobile</router-link></div></li>
-      <li><div><router-link to="/login">Login</router-link></div></li>
+      <li><div><router-link to="/login"><span v-if="isAuthenticated">Logout</span><span v-else>Login</span></router-link></div></li>
     </ul>
   </div>
 </template>
+
+<script>
+  import eventBus from '../event-bus.js'
+
+  export default {
+    data () {
+      return {
+        isAuthenticated: false
+      }
+    },
+    created () {
+      eventBus.$on('authStatusUpdated', isAuthenticated => {
+        this.isAuthenticated = isAuthenticated
+      })
+    }
+  }
+</script>

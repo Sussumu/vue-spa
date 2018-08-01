@@ -35,7 +35,7 @@ const appService = {
       axios.post('/services/auth.php', credentials)
       .then(response => {
         resolve(response.data)
-      }).catch(resposne => {
+      }).catch(response => {
         reject(response.status)
       })
     })
