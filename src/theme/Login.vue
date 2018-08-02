@@ -57,16 +57,16 @@
       }
     },
     computed: {
-      ...mapGetters(['isAuthenticated'])
+      ...mapGetters('loginModule', ['isAuthenticated'])
     },
     methods: {
       // map component's logout method to the vuex store action
-      ...mapActions({
+      ...mapActions('loginModule', {
         logout: 'logout'
       }),
       login () {
         // triggers the vuex store action
-        this.$store.dispatch('login', { username: this.username, password: this.password })
+        this.$store.dispatch('loginModule/login', { username: this.username, password: this.password })
           .then(() => {
             this.username = ''
             this.password = ''

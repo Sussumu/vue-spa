@@ -13,7 +13,7 @@
 
   export default {
     computed: {
-      ...mapGetters(['isAuthenticated'])
+      ...mapGetters('loginModule', ['isAuthenticated'])
     }
   }
 </script>
